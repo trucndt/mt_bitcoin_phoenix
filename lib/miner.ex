@@ -60,7 +60,6 @@ defmodule Miner do
     {id,ledger, tx, miner_list, sub_miner, curState} = state
     # This the condition on the message
     {from, to, amt} = parseTx(message)
-    IO.inspect(curState[from])
     if Crypto.verify(message, signature, public_key) do
       if curState[from] >= amt do
         new_tx = tx ++ [message]
@@ -91,6 +90,14 @@ defmodule Miner do
     {id, ledger, tx, miner_list, _sub_pid, curState} = state
     block = tx ++ [result]
     ledger = ledger ++ [block]
+
+    # Update state
+    curState = Enum.reduce(tx, curState, fn i, acc ->
+      {from, to, amt} = parseTx(i)
+      temp = Map.put(acc, from, acc[from] - amt)
+      Map.put(temp, to, temp[to] + amt)
+    end)
+
     if tx == [] do
       {:reply, :ok, state}
     else
@@ -117,6 +124,14 @@ defmodule Miner do
         if(String.slice(temp,0,k) === String.duplicate("0",k)) do
           block = tx ++ [result]
           ledger = ledger ++ [block]
+
+          # Update state
+          curState = Enum.reduce(tx, curState, fn i, acc ->
+            {from, to, amt} = parseTx(i)
+            temp = Map.put(acc, from, acc[from] - amt)
+            Map.put(temp, to, temp[to] + amt)
+          end)
+
           {id, ledger, [], miner_list, [], curState}
         else
           state

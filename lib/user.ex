@@ -28,11 +28,21 @@ defmodule User do
   end
 
   # Transaction
-  def transaction(user_list,miner_list,to,amt) do
-    sender = Enum.random(user_list)
+#  def transaction(user_list,miner_list,to,amt) do
+#    sender = Enum.random(user_list)
+#    {_id, private_key, public_key} = User.get_user_information(sender)
+#    # This is the message
+#    message = Base.encode64(public_key) <> to <> Integer.to_string(amt)
+#    signature = Crypto.sign(message, private_key)
+#    User.broadcast(message, signature, public_key, miner_list)
+#    :ok
+#  end
+
+  def transaction(sender,miner_list,toId,amt) do
     {_id, private_key, public_key} = User.get_user_information(sender)
+    {_,_,pubTo} = User.get_user_information(toId)
     # This is the message
-    message = Base.encode64(public_key) <> to <> Integer.to_string(amt)
+    message = Base.encode64(public_key) <> Base.encode64(pubTo) <> Integer.to_string(amt)
     signature = Crypto.sign(message, private_key)
     User.broadcast(message, signature, public_key, miner_list)
     :ok

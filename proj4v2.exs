@@ -20,29 +20,29 @@ Miner.initialState(miner_list,initState)
 #server_info = Miner.get_miner_information(miner_server)
 #IO.inspect(server_info)
 
-User.transaction(user_list,miner_list,"BK/NwPDPn06s1jFN1R2VpjWhTvQi7D4x/p2OhghxAExQe37/kA5VfrDG2euzKs4tc/dLGECUZWzLv1NPThO2/FY=",1)
-User.transaction(user_list,miner_list,"BK/NwPDPn06s1jFN1R2VpjWhTvQi7D4x/p2OhghxAExQe37/kA5VfrDG2euzKs4tc/dLGECUZWzLv1NPThO2/FY=",2)
-User.transaction(user_list,miner_list,"BK/NwPDPn06s1jFN1R2VpjWhTvQi7D4x/p2OhghxAExQe37/kA5VfrDG2euzKs4tc/dLGECUZWzLv1NPThO2/FY=",3)
+User.transaction(Enum.at(user_list, 0),miner_list,Enum.at(user_list, 2),1)
+User.transaction(Enum.at(user_list, 0),miner_list,Enum.at(user_list, 1),2)
+User.transaction(Enum.at(user_list, 0),miner_list,Enum.at(user_list, 2),3)
 
 Miner.miner_mining(miner_list)
 :timer.sleep(1000);
 #
-User.transaction(user_list,miner_list,"BK/NwPDPn06s1jFN1R2VpjWhTvQi7D4x/p2OhghxAExQe37/kA5VfrDG2euzKs4tc/dLGECUZWzLv1NPThO2/FY=",4)
+User.transaction(Enum.at(user_list, 1),miner_list,Enum.at(user_list, 3),4)
 # User.transaction(user_list,miner_list)
 
 Miner.miner_mining(miner_list)
 :timer.sleep(1000);
 
-User.transaction(user_list,miner_list,"BK/NwPDPn06s1jFN1R2VpjWhTvQi7D4x/p2OhghxAExQe37/kA5VfrDG2euzKs4tc/dLGECUZWzLv1NPThO2/FY=",5)
+User.transaction(Enum.at(user_list, 1),miner_list,Enum.at(user_list, 3),5)
 
 Miner.miner_mining(miner_list)
 :timer.sleep(1000);
 
-User.transaction(user_list,miner_list,"BK/NwPDPn06s1jFN1R2VpjWhTvQi7D4x/p2OhghxAExQe37/kA5VfrDG2euzKs4tc/dLGECUZWzLv1NPThO2/FY=",6)
+User.transaction(Enum.at(user_list, 1),miner_list,Enum.at(user_list, 4),6)
 
 Miner.miner_mining(miner_list)
 :timer.sleep(1000);
-User.transaction(user_list,miner_list,"BK/NwPDPn06s1jFN1R2VpjWhTvQi7D4x/p2OhghxAExQe37/kA5VfrDG2euzKs4tc/dLGECUZWzLv1NPThO2/FY=",7)
+User.transaction(Enum.at(user_list, 2),miner_list,Enum.at(user_list, 5),7)
 #
 # User.transaction(user_list,miner_list)
 # User.transaction(user_list,miner_list)
