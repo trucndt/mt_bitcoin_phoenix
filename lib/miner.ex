@@ -5,8 +5,8 @@ defmodule Miner do
   end
 
   def init(:ok) do
-    # {Miner number, ledger, new transaction, other miners, sub miner}
-    {:ok, {0,:nil,:nil,:nil,:nil}}
+    # {Miner number, ledger, new transaction, other miners, sub miner, curState}
+    {:ok, {0,:nil,:nil,:nil,:nil, %{}}}
   end
 
   # Miners
@@ -23,7 +23,7 @@ defmodule Miner do
   end
 
   def handle_call({:setting_miner_init,miner_id},_from, _state) do
-    {:reply,:ok, {miner_id, [], [] , [], :nil}}
+    {:reply,:ok, {miner_id, [], [] , [], :nil, %{}}}
   end
 
   def update_other_miner(miner_list) do
@@ -33,19 +33,31 @@ defmodule Miner do
   end
 
   def handle_call({:update_other_miner,miner_list},_from,  state) do
-    {id,ledger, tx, _list, sub_miner} = state
-    {:reply,:ok, {id,ledger, tx, miner_list, sub_miner} }
+    {id,ledger, tx, _list, sub_miner, curState} = state
+    {:reply,:ok, {id,ledger, tx, miner_list, sub_miner, curState} }
+  end
+
+  def initialState(miner_list, initState) do
+    Enum.each(miner_list, fn(pid) ->
+      GenServer.call(pid, {:init_state,initState})
+    end)
+  end
+
+  def handle_call({:init_state,initState},_from, _state) do
+    {id,ledger, tx, miner_list, sub_miner, curState} = _state
+    {:reply, :ok , {id, ledger, tx, miner_list, sub_miner, initState}}
   end
 
   # Handle transaction
   def handle_call({:transaction, message, signature, public_key}, _from, state) do
-    {id,ledger, tx, miner_list, sub_miner} = state
+    {id,ledger, tx, miner_list, sub_miner, curState} = state
     # This the condition on the message
+
     if Crypto.verify(message, signature, public_key) do
       new_tx = tx ++ [message]
-      {:reply, :ok , {id, ledger, new_tx, miner_list, sub_miner}}
+      {:reply, :ok , {id, ledger, new_tx, miner_list, sub_miner, curState}}
     else
-      {:reply, :ok , {id, ledger, tx, miner_list, sub_miner}}
+      {:reply, :ok , {id, ledger, tx, miner_list, sub_miner, curState}}
     end
   end
 
@@ -57,14 +69,14 @@ defmodule Miner do
   end
 
   def handle_call({:miner_mining},_from, state) do
-    {id,ledger, tx, miner_list, _} = state
+    {id,ledger, tx, miner_list, _, curState} = state
     sub_pid = Miner.start_node()
     GenServer.cast(sub_pid, {:only_mining,self(),3})
-    {:reply ,:ok, {id, ledger, tx, miner_list, sub_pid}}
+    {:reply ,:ok, {id, ledger, tx, miner_list, sub_pid, curState}}
   end
 
   def handle_call({:mining_result,result,k},_from, state) do
-    {id, ledger, tx, miner_list, _sub_pid} = state
+    {id, ledger, tx, miner_list, _sub_pid, curState} = state
     block = tx ++ [result]
     ledger = ledger ++ [block]
     if tx == [] do
@@ -73,12 +85,12 @@ defmodule Miner do
       Enum.each(List.delete(miner_list, self()), fn(pid) ->
         GenServer.cast(pid, {:inform_result, result,k})
       end)
-      {:reply, :ok, {id, ledger, [], miner_list, []}}
+      {:reply, :ok, {id, ledger, [], miner_list, [], curState}}
     end
   end
 
   def handle_cast({:inform_result,result,k}, state) do
-    {id, ledger, tx, miner_list, sub_pid} = state
+    {id, ledger, tx, miner_list, sub_pid, curState} = state
     # {tx,proof_of_work} = result
     if tx == [] do
       {:noreply, state}
@@ -93,7 +105,7 @@ defmodule Miner do
         if(String.slice(temp,0,k) === String.duplicate("0",k)) do
           block = tx ++ [result]
           ledger = ledger ++ [block]
-          {id, ledger, [], miner_list, []}
+          {id, ledger, [], miner_list, [], curState}
         else
           state
         end
@@ -112,7 +124,7 @@ defmodule Miner do
   end
 
   def mining(k,pid) do
-    {id, ledger, tx, _miner_list, _sub_pid} = Miner.get_miner_information(pid)
+    {id, ledger, tx, _miner_list, _sub_pid, curState} = Miner.get_miner_information(pid)
     if tx == [] do
       # {:no_need_to_compute, :nil}
       :no_need_to_compute

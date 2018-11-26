@@ -32,7 +32,7 @@ defmodule User do
     sender = Enum.random(user_list)
     {_id, private_key, public_key} = User.get_user_information(sender)
     # This is the message
-    message = {to,amt}
+    message = Base.encode64(public_key) <> to <> Integer.to_string(amt)
     signature = Crypto.sign(message, private_key)
     User.broadcast(message, signature, public_key, miner_list)
     :ok

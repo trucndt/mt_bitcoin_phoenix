@@ -9,9 +9,16 @@ user_list = User.create_user_list(num_users)
 miner_list = Miner.create_miner_list(num_miners)
 Miner.update_other_miner(miner_list)
 
+initState = Enum.reduce(user_list, %{}, fn pid, acc ->
+  {_,_,pubKey} = User.get_user_information(pid)
+  Map.put(acc, Base.encode64(pubKey), 100)
+end)
 
-# server_info = Miner.get_miner_information(miner_server)
-# IO.inspect(server_info)
+Miner.initialState(miner_list,initState)
+
+
+server_info = Miner.get_miner_information(miner_server)
+IO.inspect(server_info)
 
 User.transaction(user_list,miner_list,"ANC",1)
 User.transaction(user_list,miner_list,"ANC",2)
@@ -51,7 +58,7 @@ IO.inspect(info)
 
 IO.puts("*****************")
 
-{_, ledger, _, _, _} = Miner.get_miner_information(List.first(miner_list))
+{_, ledger, _, _, _, _} = Miner.get_miner_information(List.first(miner_list))
 IO.inspect(ledger)
 
 last_block = List.last(ledger)
