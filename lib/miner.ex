@@ -164,7 +164,7 @@ defmodule Miner do
         # {_,result} = Base.decode16(trial)
         # IO.inspect(result)
         # IO.inspect(trial)
-        IO.puts("The result came from machine #{id}")
+#        IO.puts("The result came from machine #{id}")
         # {[prev_hash] ++ tx,result}
         # result
         trial

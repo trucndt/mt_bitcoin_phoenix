@@ -1,7 +1,3 @@
-defmodule Proj4v2 do
-
-end
-
 num_users = Enum.at(System.argv,0) |> String.to_integer()
 num_miners = Enum.at(System.argv,1) |> String.to_integer()
 
