@@ -17,32 +17,32 @@ end)
 Miner.initialState(miner_list,initState)
 
 
-server_info = Miner.get_miner_information(miner_server)
-IO.inspect(server_info)
+#server_info = Miner.get_miner_information(miner_server)
+#IO.inspect(server_info)
 
-User.transaction(user_list,miner_list,"ANC",1)
-User.transaction(user_list,miner_list,"ANC",2)
-User.transaction(user_list,miner_list,"ANC",3)
+User.transaction(user_list,miner_list,"BK/NwPDPn06s1jFN1R2VpjWhTvQi7D4x/p2OhghxAExQe37/kA5VfrDG2euzKs4tc/dLGECUZWzLv1NPThO2/FY=",1)
+User.transaction(user_list,miner_list,"BK/NwPDPn06s1jFN1R2VpjWhTvQi7D4x/p2OhghxAExQe37/kA5VfrDG2euzKs4tc/dLGECUZWzLv1NPThO2/FY=",2)
+User.transaction(user_list,miner_list,"BK/NwPDPn06s1jFN1R2VpjWhTvQi7D4x/p2OhghxAExQe37/kA5VfrDG2euzKs4tc/dLGECUZWzLv1NPThO2/FY=",3)
 
 Miner.miner_mining(miner_list)
 :timer.sleep(1000);
 #
-User.transaction(user_list,miner_list,"ANC",4)
+User.transaction(user_list,miner_list,"BK/NwPDPn06s1jFN1R2VpjWhTvQi7D4x/p2OhghxAExQe37/kA5VfrDG2euzKs4tc/dLGECUZWzLv1NPThO2/FY=",4)
 # User.transaction(user_list,miner_list)
 
 Miner.miner_mining(miner_list)
 :timer.sleep(1000);
 
-User.transaction(user_list,miner_list,"ANC",5)
+User.transaction(user_list,miner_list,"BK/NwPDPn06s1jFN1R2VpjWhTvQi7D4x/p2OhghxAExQe37/kA5VfrDG2euzKs4tc/dLGECUZWzLv1NPThO2/FY=",5)
 
 Miner.miner_mining(miner_list)
 :timer.sleep(1000);
 
-User.transaction(user_list,miner_list,"ANC",6)
+User.transaction(user_list,miner_list,"BK/NwPDPn06s1jFN1R2VpjWhTvQi7D4x/p2OhghxAExQe37/kA5VfrDG2euzKs4tc/dLGECUZWzLv1NPThO2/FY=",6)
 
 Miner.miner_mining(miner_list)
 :timer.sleep(1000);
-User.transaction(user_list,miner_list,"ANC",7)
+User.transaction(user_list,miner_list,"BK/NwPDPn06s1jFN1R2VpjWhTvQi7D4x/p2OhghxAExQe37/kA5VfrDG2euzKs4tc/dLGECUZWzLv1NPThO2/FY=",7)
 #
 # User.transaction(user_list,miner_list)
 # User.transaction(user_list,miner_list)

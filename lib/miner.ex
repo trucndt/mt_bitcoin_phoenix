@@ -48,14 +48,26 @@ defmodule Miner do
     {:reply, :ok , {id, ledger, tx, miner_list, sub_miner, initState}}
   end
 
+  defp parseTx(tx) do
+    from = String.slice(tx, 0, 88)
+    to = String.slice(tx, 88, 88)
+    amt = String.slice(tx, 176, String.length(tx) - 176) |> String.to_integer()
+    {from, to, amt}
+  end
+
   # Handle transaction
   def handle_call({:transaction, message, signature, public_key}, _from, state) do
     {id,ledger, tx, miner_list, sub_miner, curState} = state
     # This the condition on the message
-
+    {from, to, amt} = parseTx(message)
+    IO.inspect(curState[from])
     if Crypto.verify(message, signature, public_key) do
-      new_tx = tx ++ [message]
-      {:reply, :ok , {id, ledger, new_tx, miner_list, sub_miner, curState}}
+      if curState[from] >= amt do
+        new_tx = tx ++ [message]
+        {:reply, :ok , {id, ledger, new_tx, miner_list, sub_miner, curState}}
+      else
+        {:reply, :ok , {id, ledger, tx, miner_list, sub_miner, curState}}
+      end
     else
       {:reply, :ok , {id, ledger, tx, miner_list, sub_miner, curState}}
     end
