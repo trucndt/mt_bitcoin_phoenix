@@ -73,3 +73,7 @@ test_string = Enum.join([prev_hash] ++ last_block)
 
 temp = :crypto.hash(:sha256, test_string )|> Base.encode16
 IO.inspect(temp)
+
+IO.puts("*****************")
+balance = Miner.getBalance(List.first(miner_list))
+IO.inspect(balance)

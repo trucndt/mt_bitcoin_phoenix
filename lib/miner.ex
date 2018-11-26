@@ -203,4 +203,13 @@ defmodule Miner do
     Enum.map(miner_list, fn(pid)-> Miner.get_miner_information(pid) end)
   end
 
+  def getBalance(pid) do
+    GenServer.call(pid, {:getBalance})
+  end
+
+  def handle_call({:getBalance}, _from, state) do
+    {_, _, _, _, _, curState} = state
+    {:reply, curState , state}
+  end
+
 end
