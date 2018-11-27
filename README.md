@@ -9,13 +9,17 @@ The main source code is in **lib/**:
 * user.ex: The implementation of a user/wallet node
 * crypto.ex: The implementation of some crypto functions (generating keys; signing, verifying messages)
 
-### Configuration and Compilation
-To compile:
+### Run test cases
+```
+$ mix test
+```
+
+### Compilation
 ```
 $ mix escript.build
 ```
 
-### Run syntax
+### Run program
 ```
 $ ./proj4v2 <numUser> <numMiner>
 ```
