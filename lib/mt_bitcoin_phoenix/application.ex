@@ -11,9 +11,10 @@ defmodule MtBitcoinPhoenix.Application do
       # Start the Ecto repository
       MtBitcoinPhoenix.Repo,
       # Start the endpoint when the application starts
-      MtBitcoinPhoenixWeb.Endpoint
+      MtBitcoinPhoenixWeb.Endpoint,
       # Starts a worker by calling: MtBitcoinPhoenix.Worker.start_link(arg)
       # {MtBitcoinPhoenix.Worker, arg},
+      ListUserMiner
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

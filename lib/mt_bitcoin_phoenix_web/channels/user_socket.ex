@@ -2,7 +2,7 @@ defmodule MtBitcoinPhoenixWeb.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", MtBitcoinPhoenixWeb.RoomChannel
+  channel "transaction:lobby", MtBitcoinPhoenixWeb.TransactionChannel
 
   # Socket params are passed from the client and can
   # be used to verify and authenticate a user. After
