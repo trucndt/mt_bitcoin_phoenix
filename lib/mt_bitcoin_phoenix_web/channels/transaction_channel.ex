@@ -3,7 +3,7 @@ defmodule MtBitcoinPhoenixWeb.TransactionChannel do
 
   def join("transaction:lobby", payload, socket) do
     if authorized?(payload) do
-      send(self, :after_join)
+      send(self(), :after_join)
       :timer.send_interval(2000, :tx)
       :timer.send_interval(10000, :mining)
       {:ok, socket}
@@ -13,9 +13,12 @@ defmodule MtBitcoinPhoenixWeb.TransactionChannel do
   end
 
   def handle_info(:after_join, socket) do
-    {user_list, _} = ListUserMiner.getUserMinerList()
+    {user_list, miner_list} = ListUserMiner.getUserMinerList()
     {_, _, myPub} = User.get_user_information(Enum.at(user_list, 0))
     push socket, ":join", %{myPub: Base.encode64(myPub)}
+
+    balance = Miner.getBalance(List.first(miner_list))
+    push socket, ":updateTable", balance
     {:noreply, socket}
   end
 
@@ -23,6 +26,10 @@ defmodule MtBitcoinPhoenixWeb.TransactionChannel do
     {_, miner_list} = ListUserMiner.getUserMinerList()
     Miner.miner_mining(miner_list)
     push socket, ":mining", %{status: "Mined"}
+
+    balance = Miner.getBalance(List.first(miner_list))
+    push socket, ":updateTable", balance
+
     {:noreply, socket}
   end
 
@@ -31,7 +38,7 @@ defmodule MtBitcoinPhoenixWeb.TransactionChannel do
     send = Enum.at(user_list, Enum.random(1..length(user_list)-1))
     rcv = Enum.random(user_list)
 
-    if send == rcv do
+    if send == rcv || rcv == Enum.at(user_list, 0) do
 
     else
       amt = :rand.uniform(50)
@@ -57,11 +64,10 @@ defmodule MtBitcoinPhoenixWeb.TransactionChannel do
   def handle_in("shout", payload, socket) do
     broadcast socket, "shout", payload
     IO.puts("something #{payload["receiver"]}, #{payload["btc"]}")
-    toId = String.to_integer(payload["receiver"])
     btc = String.to_integer(payload["btc"])
 
     {user_list, miner_list} = ListUserMiner.getUserMinerList()
-    User.transaction(Enum.at(user_list, 0), miner_list, Enum.at(user_list, toId), btc)
+    User.transactionToKey(Enum.at(user_list, 0), miner_list, payload["receiver"], btc)
 
     {_, _, pubFrom} = User.get_user_information(Enum.at(user_list, 0))
 

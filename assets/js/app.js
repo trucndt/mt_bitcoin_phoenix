@@ -29,8 +29,27 @@ channel.on('new:tx', function (payload) { // listen to the 'shout' event
 
 channel.on(':join', function (payload) { // listen to the 'shout' event
   var myPub = document.getElementById('myPub'); // creaet new list item DOM element
-  myPub.innerHTML = payload.myPub
+    myPub.innerHTML = payload.myPub;
 });
+
+channel.on(':updateTable', function (payload) { // listen to the 'shout' event
+    for(var i = address.rows.length - 1; i > 0; i--)
+    {
+        address.deleteRow(i);
+    }
+
+  var value;
+  Object.keys(payload).forEach(function(key) {
+      value = payload[key];
+      var row = address.insertRow(address.rows.length);
+      var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        cell1.innerHTML = key;
+        cell2.innerHTML = value;
+  });
+
+});
+
 
 channel.on(':mining', function (payload) { // listen to the 'shout' event
   var li = document.createElement("li"); // creaet new list item DOM element
@@ -45,7 +64,8 @@ channel.join(); // join the channel.
 var ul = document.getElementById('tx-list');        // list of messages.
 var receiver = document.getElementById('receiver');          // name of message sender
 var btc = document.getElementById('btc');            // message input field
-var address = document.getElementById('address')
+var address = document.getElementById('address');
+
 
 // "listen" for the [Enter] keypress event to send a message:
 receiver.addEventListener('keypress', function (event) {

@@ -1,7 +1,11 @@
-<table id="address">
+<font size="2"><table id="address">
 <tr>
     <th>Address</th>
     <th>Balance</th>
 </tr>
-</table>
 
+</table>
+</font>
+
+
+<p id="demo"></p>

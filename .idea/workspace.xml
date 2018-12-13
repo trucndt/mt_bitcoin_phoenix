@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ad9ab57-1df9-48d6-a9b0-588c6950f5b3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/mt_bitcoin_phoenix_web/controllers/address_controller.ex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/mt_bitcoin_phoenix_web/templates/address/index.html.eex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/mt_bitcoin_phoenix_web/views/address_view.ex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/mt_bitcoin_phoenix_web/channels/transaction_channel.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/mt_bitcoin_phoenix_web/channels/transaction_channel.ex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/mt_bitcoin_phoenix_web/router.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/mt_bitcoin_phoenix_web/router.ex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/mt_bitcoin_phoenix_web/templates/layout/app.html.eex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/mt_bitcoin_phoenix_web/templates/layout/app.html.eex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/user.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/user.ex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/mt_bitcoin_phoenix_web/templates/address/index.html.eex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/mt_bitcoin_phoenix_web/templates/address/index.html.eex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/mt_bitcoin_phoenix_web/templates/page/index.html.eex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/mt_bitcoin_phoenix_web/templates/page/index.html.eex" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/_build/dev/lib/connection/" />
     <ignored path="$PROJECT_DIR$/_build/dev/lib/cowboy/" />
@@ -54,8 +49,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/mt_bitcoin_phoenix_web/channels/transaction_channel.ex">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="54" selection-start-line="22" selection-start-column="54" selection-end-line="22" selection-end-column="54" />
+            <state relative-caret-position="239">
+              <caret line="40" column="25" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -63,17 +58,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/miner.ex">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="44" column="6" selection-start-line="44" selection-start-column="6" selection-end-line="44" selection-end-column="6" />
+            <state relative-caret-position="569">
+              <caret line="45" column="35" lean-forward="true" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="35" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/mt_bitcoin_phoenix_web/router.ex">
+        <entry file="file://$PROJECT_DIR$/lib/mt_bitcoin_phoenix_web/templates/page/index.html.eex">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="45" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
+            <state>
+              <caret column="65" selection-start-column="65" selection-end-column="65" />
             </state>
           </provider>
         </entry>
@@ -81,8 +76,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/mt_bitcoin_phoenix_web/templates/address/index.html.eex">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="18" selection-start-column="18" selection-end-column="18" />
+            <state relative-caret-position="15">
+              <caret line="1" column="4" lean-forward="true" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -90,26 +85,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="37" column="41" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/user.ex">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="945">
-              <caret line="63" column="22" lean-forward="true" selection-start-line="63" selection-start-column="22" selection-end-line="63" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/mt_bitcoin_phoenix_web/templates/layout/app.html.eex">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="54" selection-start-line="15" selection-start-column="54" selection-end-line="15" selection-end-column="54" />
+            <state relative-caret-position="509">
+              <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -139,13 +116,13 @@
         <option value="$PROJECT_DIR$/lib/mt_bitcoin_phoenix/application.ex" />
         <option value="$PROJECT_DIR$/lib/mt_bitcoin_phoenix_web/endpoint.ex" />
         <option value="$PROJECT_DIR$/lib/list_user_miner.ex" />
-        <option value="$PROJECT_DIR$/lib/mt_bitcoin_phoenix_web/templates/page/index.html.eex" />
         <option value="$PROJECT_DIR$/lib/mt_bitcoin_phoenix_web/router.ex" />
         <option value="$PROJECT_DIR$/lib/mt_bitcoin_phoenix_web/controllers/address_controller.ex" />
         <option value="$PROJECT_DIR$/lib/mt_bitcoin_phoenix_web/views/address_view.ex" />
         <option value="$PROJECT_DIR$/lib/mt_bitcoin_phoenix_web/templates/layout/app.html.eex" />
-        <option value="$PROJECT_DIR$/lib/mt_bitcoin_phoenix_web/templates/address/index.html.eex" />
         <option value="$PROJECT_DIR$/lib/user.ex" />
+        <option value="$PROJECT_DIR$/lib/mt_bitcoin_phoenix_web/templates/page/index.html.eex" />
+        <option value="$PROJECT_DIR$/lib/mt_bitcoin_phoenix_web/templates/address/index.html.eex" />
         <option value="$PROJECT_DIR$/assets/js/app.js" />
         <option value="$PROJECT_DIR$/lib/mt_bitcoin_phoenix_web/channels/transaction_channel.ex" />
       </list>
@@ -191,20 +168,7 @@
               <item name="mt_bitcoin_phoenix" type="b2602c69:ProjectViewProjectNode" />
               <item name="mt_bitcoin_phoenix" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="mt_bitcoin_phoenix" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mt_bitcoin_phoenix" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mt_bitcoin_phoenix" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
               <item name="mt_bitcoin_phoenix_web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mt_bitcoin_phoenix" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mt_bitcoin_phoenix" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="mt_bitcoin_phoenix_web" type="462c0819:PsiDirectoryNode" />
-              <item name="channels" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mt_bitcoin_phoenix" type="b2602c69:ProjectViewProjectNode" />
@@ -234,22 +198,7 @@
               <item name="lib" type="462c0819:PsiDirectoryNode" />
               <item name="mt_bitcoin_phoenix_web" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="layout" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mt_bitcoin_phoenix" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mt_bitcoin_phoenix" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="mt_bitcoin_phoenix_web" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="page" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mt_bitcoin_phoenix" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mt_bitcoin_phoenix" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="mt_bitcoin_phoenix_web" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -365,27 +314,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/list_user_miner.ex">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/mt_bitcoin_phoenix_web/controllers/address_controller.ex">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/mt_bitcoin_phoenix_web/templates/page/index.html.eex">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="19" selection-end-column="10" />
-          <folding>
-            <element signature="n#style#0;n#ul#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -400,13 +332,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/mt_bitcoin_phoenix_web/controllers/page_controller.ex">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
@@ -431,31 +356,76 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/mt_bitcoin_phoenix_web/templates/address/index.html.eex">
+    <entry file="file://$PROJECT_DIR$/test/test_helper.exs">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/mt_bitcoin_phoenix_web/channels/transaction_channel_test.exs">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/mt_bitcoin_phoenix_web/views/page_view_test.exs">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/mt_bitcoin_phoenix_web/views/layout_view_test.exs">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/support/channel_case.ex">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/support/data_case.ex">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/support/conn_case.ex">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/mt_bitcoin_phoenix_web/controllers/page_controller.ex">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="18" selection-start-column="18" selection-end-column="18" />
+        <state relative-caret-position="105">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test/mt_bitcoin_phoenix_web/controllers/page_controller_test.exs">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/miner.ex">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="44" column="6" selection-start-line="44" selection-start-column="6" selection-end-line="44" selection-end-column="6" />
+        <state relative-caret-position="569">
+          <caret line="45" column="35" lean-forward="true" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/list_user_miner.ex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/mt_bitcoin_phoenix_web/templates/address/index.html.eex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="4" lean-forward="true" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/mt_bitcoin_phoenix_web/templates/page/index.html.eex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="65" selection-start-column="65" selection-end-column="65" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="37" column="41" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
+        <state relative-caret-position="509">
+          <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/mt_bitcoin_phoenix_web/channels/transaction_channel.ex">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="54" selection-start-line="22" selection-start-column="54" selection-end-line="22" selection-end-column="54" />
+        <state relative-caret-position="239">
+          <caret line="40" column="25" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
         </state>
       </provider>
     </entry>
