@@ -1,0 +1,16 @@
+<h2>Authors: </h2>
+<ul>
+<il>Minh Vu (9194-1842)</il> <br>
+<il>Truc D Nguyen (9482-7764)</il>
+</ul>
+
+
+<!-- <div class="row">
+  <div class="col-xs-3">
+    <input type="text" id="receiver" class="form-control" placeholder="Receiver" autofocus>
+  </div>
+  <div class="col-xs-9">
+    <input type="number" id="btc" class="form-control" placeholder="BTC">
+  </div>
+</div> -->
+

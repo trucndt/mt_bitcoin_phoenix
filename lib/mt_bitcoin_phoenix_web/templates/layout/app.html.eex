@@ -13,6 +13,7 @@
         <nav role="navigation">
           <ul>
             <li><a href="http://localhost:4000">Home</a></li>
+            <li><a href="http://localhost:4000/about">Authors</a></li>
             <li><a href="http://localhost:4000/address">Balance</a></li>
             <li><a href="http://localhost:4000/metric">Statistic</a></li>
           </ul>
