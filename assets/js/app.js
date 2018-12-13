@@ -23,7 +23,8 @@ channel.on('new:tx', function (payload) { // listen to the 'shout' event
   var receiver = payload.to;    // get name from payload or set default
   li.innerHTML = '<b>[Transaction]:</b><br> <font size="2">*From: ' + payload.from
     + '<br> *To: ' + receiver + '<br>*Amount: ' +  payload.amt + '</font>'; // set li contents
-  ul.appendChild(li);                    // append to list
+//  ul.appendChild(li);                    // append to list
+    ul.insertBefore(li, ul.childNodes[0])
 });
 
 channel.on(':join', function (payload) { // listen to the 'shout' event
@@ -31,11 +32,20 @@ channel.on(':join', function (payload) { // listen to the 'shout' event
   myPub.innerHTML = payload.myPub
 });
 
+channel.on(':mining', function (payload) { // listen to the 'shout' event
+  var li = document.createElement("li"); // creaet new list item DOM element
+  var receiver = payload.to;    // get name from payload or set default
+  li.innerHTML = '<b>' + payload.status + '</b><br>'; // set li contents
+//  ul.appendChild(li);                    // append to list
+    ul.insertBefore(li, ul.childNodes[0])
+});
+
 channel.join(); // join the channel.
 
 var ul = document.getElementById('tx-list');        // list of messages.
 var receiver = document.getElementById('receiver');          // name of message sender
 var btc = document.getElementById('btc');            // message input field
+var address = document.getElementById('address')
 
 // "listen" for the [Enter] keypress event to send a message:
 receiver.addEventListener('keypress', function (event) {

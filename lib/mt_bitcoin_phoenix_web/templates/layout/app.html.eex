@@ -12,7 +12,8 @@
       <section class="container">
         <nav role="navigation">
           <ul>
-            <li><a href="http://localhost:4000">Get Started</a></li>
+            <li><a href="http://localhost:4000">Home</a></li>
+            <li><a href="http://localhost:4000/address">Address</a></li>
           </ul>
         </nav>
         <a href="http://phoenixframework.org/" class="phx-logo">

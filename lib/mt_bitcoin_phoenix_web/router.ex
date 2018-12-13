@@ -17,6 +17,7 @@ defmodule MtBitcoinPhoenixWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    get "/address", AddressController, :index
   end
 
   # Other scopes may use custom stacks.
