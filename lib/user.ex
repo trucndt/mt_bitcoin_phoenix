@@ -52,6 +52,15 @@ defmodule User do
     :ok
   end
 
+  def transactionToKey(sender, miner_list, pubTo, amt) do
+    {_id, private_key, public_key} = User.get_user_information(sender)
+    # This is the message
+    message = Base.encode64(public_key) <> Base.decode64(pubTo) <> Integer.to_string(amt)
+    signature = Crypto.sign(message, private_key)
+    User.broadcast(message, signature, public_key, miner_list)
+    :ok
+  end
+
   # Broadcast to miner
   def broadcast(message, signature, public_key, miner_list) do
     Enum.each(miner_list, fn pid ->

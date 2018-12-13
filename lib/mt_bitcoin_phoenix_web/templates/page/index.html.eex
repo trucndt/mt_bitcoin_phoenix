@@ -1,5 +1,14 @@
+<p><font size="2">My address is: <span id="myPub"></span></font></p>
+
+<div>
+I want to send
+  <input type="number" id="btc" class="form-control" placeholder="amount">
+   BTC to
+  <input type="text" id="receiver" class="form-control" placeholder="Address" autofocus>
+</div>
+
 <!-- The list of messages will appear here: -->
-<p><ul id='tx-list' class='row' style='list-style: none; min-height:200px; padding: 10px;'></ul></p>
+<ul id='tx-list' style='list-style: none; min-height:200px; padding: 0px;'></ul>
 
 <!-- <div class="row">
   <div class="col-xs-3">
@@ -10,9 +19,3 @@
   </div>
 </div> -->
 
-<div>
-I want to send
-  <input type="number" id="btc" class="form-control" placeholder="amount">
-   BTC to
-  <input type="text" id="receiver" class="form-control" placeholder="Receiver" autofocus>
-</div>

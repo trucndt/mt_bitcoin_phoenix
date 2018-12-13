@@ -18,16 +18,20 @@ import socket from "./socket"
 
 var channel = socket.channel('transaction:lobby', {}); // connect to chat "room"
 
-channel.on('shout', function (payload) { // listen to the 'shout' event
+channel.on('new:tx', function (payload) { // listen to the 'shout' event
   var li = document.createElement("li"); // creaet new list item DOM element
-  var receiver = payload.receiver || 'guest';    // get name from payload or set default
-  li.innerHTML = "Sending " + payload.btc + " BTC to "+ receiver; // set li contents
+  var receiver = payload.to;    // get name from payload or set default
+  li.innerHTML = '<b>[Transaction]:</b><br> <font size="2">*From: ' + payload.from
+    + '<br> *To: ' + receiver + '<br>*Amount: ' +  payload.amt + '</font>'; // set li contents
   ul.appendChild(li);                    // append to list
+});
 
+channel.on(':join', function (payload) { // listen to the 'shout' event
+  var myPub = document.getElementById('myPub'); // creaet new list item DOM element
+  myPub.innerHTML = payload.myPub
 });
 
 channel.join(); // join the channel.
-
 
 var ul = document.getElementById('tx-list');        // list of messages.
 var receiver = document.getElementById('receiver');          // name of message sender
