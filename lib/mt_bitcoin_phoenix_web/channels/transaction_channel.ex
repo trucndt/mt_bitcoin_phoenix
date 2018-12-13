@@ -18,17 +18,27 @@ defmodule MtBitcoinPhoenixWeb.TransactionChannel do
     push socket, ":join", %{myPub: Base.encode64(myPub)}
 
     balance = Miner.getBalance(List.first(miner_list))
-    push socket, ":updateTable", balance
+    push socket, ":updateTable", Map.merge(balance, %{myPub: Base.encode64(myPub)})
+
+    {noTx, noBlocks, time} = ListUserMiner.getInfo()
+    duration = (:os.system_time(:millisecond) - time) / 1000
+    push socket, ":metric", %{noTx: noTx, noBlocks: noBlocks, txsec: noTx/duration, blocksec: noBlocks/duration, user: length(user_list), miner: length(miner_list)}
     {:noreply, socket}
   end
 
   def handle_info(:mining, socket) do
-    {_, miner_list} = ListUserMiner.getUserMinerList()
+    {user_list, miner_list} = ListUserMiner.getUserMinerList()
     Miner.miner_mining(miner_list)
     push socket, ":mining", %{status: "Mined"}
+    ListUserMiner.updateBlock()
 
     balance = Miner.getBalance(List.first(miner_list))
-    push socket, ":updateTable", balance
+    {_, _, myPub} = User.get_user_information(Enum.at(user_list, 0))
+    push socket, ":updateTable", Map.merge(balance, %{myPub: Base.encode64(myPub)})
+
+    {noTx, noBlocks, time} = ListUserMiner.getInfo()
+    duration = (:os.system_time(:millisecond) - time) / 1000
+    push socket, ":metric", %{noTx: noTx, noBlocks: noBlocks, txsec: noTx/duration, blocksec: noBlocks/duration, user: length(user_list), miner: length(miner_list)}
 
     {:noreply, socket}
   end
@@ -48,6 +58,11 @@ defmodule MtBitcoinPhoenixWeb.TransactionChannel do
       {_, _, pubTo} = User.get_user_information(rcv)
 
       push socket, "new:tx", %{from: Base.encode64(pubFrom), to: Base.encode64(pubTo), amt: amt}
+      ListUserMiner.updateTx()
+
+      {noTx, noBlocks, time} = ListUserMiner.getInfo()
+      duration = (:os.system_time(:millisecond) - time) / 1000
+      push socket, ":metric", %{noTx: noTx, noBlocks: noBlocks, txsec: noTx/duration, blocksec: noBlocks/duration, user: length(user_list), miner: length(miner_list)}
     end
 
     {:noreply, socket}

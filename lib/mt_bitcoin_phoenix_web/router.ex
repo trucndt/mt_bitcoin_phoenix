@@ -18,6 +18,7 @@ defmodule MtBitcoinPhoenixWeb.Router do
 
     get "/", PageController, :index
     get "/address", AddressController, :index
+    get "/metric", MetricController, :index
   end
 
   # Other scopes may use custom stacks.

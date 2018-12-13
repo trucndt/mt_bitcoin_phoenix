@@ -32,6 +32,17 @@ channel.on(':join', function (payload) { // listen to the 'shout' event
     myPub.innerHTML = payload.myPub;
 });
 
+channel.on(':metric', function (payload) { // listen to the 'shout' event
+  var metric = document.getElementById('metric');
+  metric.rows[1].cells[1].innerHTML = payload.user;
+  metric.rows[2].cells[1].innerHTML = payload.miner;
+  metric.rows[3].cells[1].innerHTML = payload.noBlocks;
+  metric.rows[4].cells[1].innerHTML = payload.noTx;
+  metric.rows[5].cells[1].innerHTML = payload.noTx / payload.noBlocks;
+  metric.rows[6].cells[1].innerHTML = payload.txsec;
+  metric.rows[7].cells[1].innerHTML = payload.blocksec;
+});
+
 channel.on(':updateTable', function (payload) { // listen to the 'shout' event
     for(var i = address.rows.length - 1; i > 0; i--)
     {
@@ -40,12 +51,24 @@ channel.on(':updateTable', function (payload) { // listen to the 'shout' event
 
   var value;
   Object.keys(payload).forEach(function(key) {
-      value = payload[key];
-      var row = address.insertRow(address.rows.length);
-      var cell1 = row.insertCell(0);
+    if (key != "myPub")
+    {
+        value = payload[key];
+        var row = address.insertRow(address.rows.length);
+        var cell1 = row.insertCell(0);
         var cell2 = row.insertCell(1);
-        cell1.innerHTML = key;
-        cell2.innerHTML = value;
+        if (key == payload.myPub)
+         {
+            cell1.innerHTML = '<b>' + key + '</b>';
+            cell2.innerHTML = '<b>' + value + '</b>';
+         }
+         else
+         {
+            cell1.innerHTML = key;
+            cell2.innerHTML = value;
+         }
+    }
+
   });
 
 });
@@ -65,6 +88,7 @@ var ul = document.getElementById('tx-list');        // list of messages.
 var receiver = document.getElementById('receiver');          // name of message sender
 var btc = document.getElementById('btc');            // message input field
 var address = document.getElementById('address');
+
 
 
 // "listen" for the [Enter] keypress event to send a message:

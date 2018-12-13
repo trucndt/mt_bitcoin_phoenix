@@ -1,0 +1,54 @@
+
+<table id="metric">
+<tr>
+    <th>Metric</th>
+    <th>Value</th>
+</tr>
+
+<tr>
+    <td>Number of Users</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td>Number of Miners</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td>Number of blocks</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td>Number of transactions</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td>Average tx / block</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td>Average tx / sec</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td>Average blocks / sec</td>
+    <td></td>
+</tr>
+
+</table>
+
+
+<!-- <div class="row">
+  <div class="col-xs-3">
+    <input type="text" id="receiver" class="form-control" placeholder="Receiver" autofocus>
+  </div>
+  <div class="col-xs-9">
+    <input type="number" id="btc" class="form-control" placeholder="BTC">
+  </div>
+</div> -->
+

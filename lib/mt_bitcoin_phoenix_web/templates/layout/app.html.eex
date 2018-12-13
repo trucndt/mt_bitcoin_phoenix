@@ -13,7 +13,8 @@
         <nav role="navigation">
           <ul>
             <li><a href="http://localhost:4000">Home</a></li>
-            <li><a href="http://localhost:4000/address">Address</a></li>
+            <li><a href="http://localhost:4000/address">Balance</a></li>
+            <li><a href="http://localhost:4000/metric">Statistic</a></li>
           </ul>
         </nav>
         <a href="http://phoenixframework.org/" class="phx-logo">
